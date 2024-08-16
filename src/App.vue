@@ -4,6 +4,8 @@
     con el Rey godo {{ rey }}
 </h2>
 <h3 class="precio">Precio: {{ preciRey }}$</h3>
+<div v-if="disponible" class="dias soloFinesDeSemana">(Sólo fines de semana)</div>
+<div v-else class="dias todosLosDias">(De lunes a domingo)</div>
 <br>
 <img :src="imagen" alt="">
 <br>
@@ -36,6 +38,10 @@ const preciRey = computed(() => {
     return productos[contador.value].precio
 })
 
+const disponible = computed(() => {
+    return productos[contador.value].finDeSemana
+})
+
 // Imagenes
 const ruta = "https://www.html6.es/img/rey_"
 
@@ -45,5 +51,20 @@ const imagen = computed(() => {
 </script>
 
 <style scoped>
+.todosLosDias {
+    background-color: green;
+}
 
+.soloFinesDeSemana {
+    background-color: red;
+}
+
+.dias {
+    color: white;
+    padding: 4px 17px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    margin: 5px 0 10px;
+    display: inline-block;
+}
 </style>
