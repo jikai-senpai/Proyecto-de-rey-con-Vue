@@ -3,9 +3,16 @@
     Cena {{ contador + 1 }}
     con el Rey godo {{ rey }}
 </h2>
-<h3 class="precio">Precio: {{ preciRey }}$</h3>
+<h3 class="precio">Precio: {{ precioRey }}$</h3>
 <div v-if="disponible" class="dias soloFinesDeSemana">(Sólo fines de semana)</div>
 <div v-else class="dias todosLosDias">(De lunes a domingo)</div>
+<div v-if="precioRey < 100" class="oferta">
+    <div>
+        Ahora un 10% de descuento
+        {{ nuevoPrecio }}$
+    </div>
+    <img src="/oferta.jpg" alt="Rey godo en descuento">
+</div>
 <br>
 <img :src="imagen" alt="">
 <br>
@@ -34,12 +41,16 @@ const rey = computed(() => {
     return nombreRey.substring(0,1).toUpperCase() + nombreRey.substring(1)
 })
 
-const preciRey = computed(() => {
+const precioRey = computed(() => {
     return productos[contador.value].precio
 })
 
 const disponible = computed(() => {
     return productos[contador.value].finDeSemana
+})
+
+const nuevoPrecio = computed(() => {
+    return Number(productos[contador.value].precio / 1.10).toFixed(2)
 })
 
 // Imagenes
@@ -57,14 +68,5 @@ const imagen = computed(() => {
 
 .soloFinesDeSemana {
     background-color: red;
-}
-
-.dias {
-    color: white;
-    padding: 4px 17px;
-    font-size: 0.9em;
-    border-radius: 4px;
-    margin: 5px 0 10px;
-    display: inline-block;
 }
 </style>
