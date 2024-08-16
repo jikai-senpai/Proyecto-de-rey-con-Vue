@@ -3,9 +3,9 @@
     Cena {{ contador + 1 }}
     con el Rey godo {{ rey }}
 </h2>
-
+<br>
 <img :src="imagen" alt="">
-
+<br>
 <button @:click="siguiente">Siguiente ({{contador + 1}} / {{total}})</button>
 </template>
 
@@ -32,10 +32,10 @@ const rey = computed(() => {
 })
 
 // Imagenes
-const ruta = "www.html6.es/img/rey_"
+const ruta = "https://www.html6.es/img/rey_"
 
 const imagen = computed(() => {
-    return ruta + productos[contador.value].nombre.toLowerCase() + ".png"
+    return `${ruta}${productos[contador.value].nombre.toLowerCase()}.png`
 })
 </script>
 
