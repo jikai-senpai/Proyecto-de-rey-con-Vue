@@ -8,8 +8,8 @@
 <div v-else class="dias todosLosDias">(De lunes a domingo)</div>
 <div v-if="precioRey < 100" class="oferta">
     <div>
-        Ahora un 10% de descuento
-        {{ nuevoPrecio }}$
+        Ahora un 10% de descuento:
+        <span class="colorOferta">{{ nuevoPrecio }}$</span>
     </div>
     <img src="/oferta.jpg" alt="Rey godo en descuento">
 </div>

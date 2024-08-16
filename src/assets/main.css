@@ -10,5 +10,8 @@
 .oferta img {
   width: 65px;
   margin: 12px 5px;
-  
+}
+
+.colorOferta {
+  color: green;
 }
