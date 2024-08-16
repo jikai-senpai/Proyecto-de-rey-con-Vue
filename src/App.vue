@@ -3,6 +3,7 @@
     Cena {{ contador + 1 }}
     con el Rey godo {{ rey }}
 </h2>
+<h3 class="precio">Precio: {{ preciRey }}$</h3>
 <br>
 <img :src="imagen" alt="">
 <br>
@@ -29,6 +30,10 @@ const siguiente = () => {
 const rey = computed(() => {
     const nombreRey = productos[contador.value].nombre.toLowerCase()
     return nombreRey.substring(0,1).toUpperCase() + nombreRey.substring(1)
+})
+
+const preciRey = computed(() => {
+    return productos[contador.value].precio
 })
 
 // Imagenes
